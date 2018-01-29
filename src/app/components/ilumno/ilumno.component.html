@@ -1,0 +1,24 @@
+
+
+
+<div class="alert alert-success" role="alert">
+  <h3 class="display-3">Iframe ILUMNO</h3>
+  <hr class="my-2">
+  <button class="btn btn-default" (click)="testSilentRefresh()">Test silent refresh</button>
+  <div class="panel panel-default">
+    <div class="panel-body">
+        <p>
+            <b>access_token:</b> {{access_token}}
+        </p>
+        <p>
+            <b>id_token:</b> {{id_token}}
+        </p>
+        <div *ngIf="userProfile">
+            <b>user profile:</b>
+            <pre>{{userProfile | json}}</pre>
+        </div>
+    
+    </div>
+    </div>
+<iframe *ngIf="url"  width="1000" height="600"  [src] = "url | domseguro" frameborder="0" allowfullscreen></iframe> 
+</div>
