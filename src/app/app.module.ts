@@ -31,7 +31,6 @@ import { DomseguroPipe } from "./components/ilumno/domseguro.pipe";
     appRouting
   ],
   providers: [
-    { provide: BASE_URL, useValue: "https://hpg-keycloak.northeurope.cloudapp.azure.com:8443"},
     { provide: APP_CONFIG, useValue: AppConfig }
   ],
   bootstrap: [AppComponent]

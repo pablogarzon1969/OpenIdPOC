@@ -11,19 +11,13 @@ export class AppComponent {
   public info: string = "Welt";
 
   constructor(private oauthService: OAuthService) {
-
-    //this.oauthService.loginUrl = "https://iam.ilumno.com:9443/oauth2/authorize"; //Id-Provider? Produccion
     this.oauthService.loginUrl = "https://iam-qa.ilumno.com:9443/oauth2/authorize"; //QA
-
-
     // URL of the SPA to redirect the user to after login
     this.oauthService.redirectUri = window.location.origin + "/index.html";
 
     this.oauthService.silentRefreshRedirectUri = window.location.origin + "/silent-refresh.html";
 
-    // The SPA's id. Register SPA with this id at the auth-server
-    // this.oauthService.clientId = "2ubSMuYIORmBqNK01qxs4EZOQ0Ea"; //produccion
-    this.oauthService.clientId = "sIa4d6Ff4fIIf2AaF2O4mL8cyoga"; // QA poli
+    this.oauthService.clientId = "dcLhjkWp0_16g02FIdl98Hg05XUa"; // ILumno
 
     // set the scope for the permissions the client should request
     this.oauthService.scope = "openid";
@@ -38,15 +32,11 @@ export class AppComponent {
 
     this.oauthService.issuer = "https://iam-qa.ilumno.com:9443/oauth2/token";
 
-    //  this.oauthService.issuer = "https://iam-qa.ilumno.com:9443/oauth2/token";
-
     // Use setStorage to use sessionStorage or another implementation of the TS-type Storage
     // instead of localStorage
 
     //this.oauthService.silentRefreshTimeout = 10000;
 
-    // To also enable single-sign-out set the url for your auth-server's logout-endpoint here
-    // this.oauthService.logoutUrl = "https://iam.ilumno.com:9443/oidc/logout";//produccion
     this.oauthService.logoutUrl = "https://iam-qa.ilumno.com:9443/oidc/logout"; // QA
 
     this.oauthService.events.subscribe(e => {
